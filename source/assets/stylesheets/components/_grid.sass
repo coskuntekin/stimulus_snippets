@@ -1,0 +1,44 @@
+//------------------------------------
+// #Grid System
+//------------------------------------
+
+.container 
+  width: 100%
+  margin-right: auto
+  margin-left: auto
+
+$breakpoints: (992px: 960px, 1200px: 1140px, 1400px: 1320px)
+
+@each $key,$value in $breakpoints
+  @media (min-width: $key) 
+    .container
+      max-width: $value
+
+// Display systems
+//
+$display: grid, inline-grid, inline-flex, flex, block, inline-block, none
+@each $var in $display
+  .d--#{$var}
+    display: $var
+
+
+// Alignment for grid and flex
+//   
+$grid-alignment: start, center, end
+@each $var in $grid-alignment
+  .align-items--#{$var}
+    align-items: $var  
+  .align-self--#{$var}
+    align-self: $var  
+  .justify-content--#{$var}
+    justify-content: $var
+  .justify-items--#{$var}
+    justify-items: $var
+  .justify-self--#{$var}
+    justify-self: $var
+
+$grid-distributed-alignment: space-between, space-around, space-evenly, stretch
+@each $var in $grid-distributed-alignment
+  .justify-content--#{$var}
+    justify-content: $var
+     

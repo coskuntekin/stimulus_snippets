@@ -1,0 +1,17 @@
+/* THANKS */
+
+  Ruby
+  Middleman
+  HTML5 Bolireplate
+  HTML5
+  CSS3
+  JavaScript
+  Sass
+  GIT
+
+/* SITE */
+
+  Last Update: 2021/01/31
+  Doctype: HTML5
+  IDE: Visual Studio Code
+  Platform: Middleman - Ruby
