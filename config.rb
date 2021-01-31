@@ -19,6 +19,7 @@ page '/*.txt', layout: false
 ###
 # Helpers
 ###
+
 activate :syntax
 
 ###

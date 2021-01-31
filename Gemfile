@@ -7,5 +7,3 @@ source 'https://rubygems.org'
 gem 'middleman', '~> 4.3', '>= 4.3.11'
 gem 'middleman-livereload', '~> 3.4', '>= 3.4.6'
 gem 'middleman-syntax', '~> 3.2'
-
-gem 'middleman-deploy', :git => 'git://github.com/alexanderadam/middleman-deploy.git'
