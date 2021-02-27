@@ -7,3 +7,5 @@ source 'https://rubygems.org'
 gem 'middleman', '~> 4.3', '>= 4.3.11'
 gem 'middleman-livereload', '~> 3.4', '>= 3.4.6'
 gem 'middleman-syntax', '~> 3.2'
+
+gem 'redcarpet', '~> 3.5', '>= 3.5.1'

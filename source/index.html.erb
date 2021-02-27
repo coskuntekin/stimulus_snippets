@@ -43,21 +43,7 @@
             copy
           </button>
           <div id="countLengthOfValueHtmlContent">          
-<% code("html") do %>
-  <div data-controller="textarea" 
-      data-textarea-lenght-value="250"
-      data-textarea-danger-class="text--danger">
-    <label for="biography">
-      Biography
-    <small>(<span data-textarea-target="lenght">250</span>)</small>
-    </label>
-    <textarea name="biography" 
-              id="biography" 
-              data-textarea-target="textarea"
-              data-action="input->textarea#update">            
-    </textarea>
-  </div>          
-<% end %>
+            <%= partial "partials/snippets/textarea--html" %>
           </div>
         </div>
       </div>
@@ -70,28 +56,8 @@
             <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
             copy
           </button>
-          <div id="countLengthOfValueJsContent">          
-<% code("javascript") do %>
-  import { Controller } from "stimulus";
-
-  export default class extends Controller {
-    static targets = ["lenght", "textarea"];
-    static classes = ["danger"];
-    static values = { lenght: Number };
-    validate(valueLength) {
-      this.lenghtTarget.innerText = this.lenghtValue - valueLength;
-      valueLength > this.lenghtValue
-        ? this.lenghtTarget.classList.add(this.dangerClass)
-        : this.lenghtTarget.classList.remove(this.dangerClass);
-    }
-    initialize() {
-      this.validate(this.textareaTarget.value.length);
-    }
-    update(event) {
-      this.validate(event.target.value.length);
-    }
-  }        
-<% end %>
+          <div id="countLengthOfValueJsContent">     
+            <%= partial "partials/snippets/textarea--js" %>
           </div>
         </div>
       </div>
@@ -124,29 +90,7 @@
             copy
           </button>
           <div id="dialogHtmlContent">
-<% code("html") do %>
-  <details aria-label="Deatils dialog" class="details-reset details-with-dialog" data-controller="dialog">
-    <summary class="details-reset--summary" role="button">Open dialog</summary>
-    <section aria-label="Dialog" class="details-dialog" role="dialog" aria-modal="true">
-      <article aria-label="Head">
-        <h4>
-          Title
-        </h4>
-        <button class="btn" data-action="click->dialog#close">
-          &otimes;
-        </button>
-      </article>
-      <article aria-label="Body">
-        Body
-      </article>
-      <article aria-label="Foot">
-        <button type="button" data-action="click->dialog#close">
-          Close
-        </button>
-      </article>
-    </section>
-  </details>       
-<% end %>
+            <%= partial "partials/snippets/dialog--html" %>
           </div>
         </div>
       </div>
@@ -160,35 +104,7 @@
             copy
           </button>
           <div id="dialogSassContent">
-<% code("sass") do %>
-  .details-reset
-    &--summary
-      list-style: none
-      &::-webkit-details-marker
-        display: none
-
-  .details-with-dialog[open] > summary::before
-    content: ''
-    position: fixed
-    top: 0
-    right: 0
-    left: 0
-    bottom: 0
-    width: 100%
-    height: 100%
-    background-color: rgba(0,0 ,0 ,.5)
-    z-index: 1
-
-  .details-dialog
-    position: fixed
-    top: 0
-    left: 50%
-    width: 32rem
-    margin: 5rem auto
-    transform: translateX(-50%)
-    background-color: orange
-    z-index: 2
-<% end %>
+            <%= partial "partials/snippets/dialog--sass" %>
           </div>
         </div>
       </div>
@@ -202,19 +118,7 @@
             copy
           </button>
           <div id="dialogJsContent">
-<% code("javascript") do %>
-  import { Controller } from 'stimulus';
-
-  export default class extends Controller {
-    close() {
-      this.element.removeAttribute('open');
-    }
-
-    disconnect() {
-      this.element.removeAttribute('open');
-    }
-  }
-<% end %>
+            <%= partial "partials/snippets/dialog--sass" %>
           </div>
         </div>
       </div>
@@ -246,23 +150,7 @@
             copy
           </button>
           <div id="toasterHtmlContent">
-<% code("html") do %>
-  <section data-controller="toaster"
-           data-action="animationend->toaster#animationEnd"
-           data-toaster-type-class="bg--#{flash_message_type}"
-           data-toaster-in-class="toaster__in"
-           data-toaster-out-class="toaster__out"
-           data-toaster-has-progress-value="true"
-           class="toaster toaster__in">
-    <p>
-      Flash message value!
-    </p>
-    <button data-action="click->toaster#close">x</button>
-    <div aria-label="Progress bar" 
-        role="progressbar"
-        data-toaster-target="progress"></div>
-  </section>
-<% end %>
+            <%= partial "partials/snippets/toaster--html" %>
           </div>
         </div>
       </div>
@@ -276,42 +164,7 @@
             copy
           </button>
           <div id="toasterSassContent">
-<% code("Sass") do %>
-  .toaster
-    position: fixed
-    right: 10px
-    top: 25px
-    width: 350px
-    animation-duration: 300ms
-    z-index: 5
-    &__in
-      animation-name: slideInRight
-      animation-timing-function: ease-in
-    &__out
-      animation-name: slideOutLeft
-      animation-timing-function: ease-out
-    &__progress
-      width: 100%
-      height: 5px
-      margin-top: 1rem
-      border-radius: 1rem
-      background-color: rgba(0, 0, 0, 0.25)
-      transition: width 100ms linear
-
-  @keyframes slideInRight
-    from
-      transform: translate3d(100%, 0, 0)
-      visibility: visible
-    to
-      transform: translate3d(0, 0, 0)
-
-  @keyframes slideOutLeft
-    from
-      transform: translate3d(0, 0, 0)
-    to
-      visibility: hidden
-      transform: translate3d(100%, 0, 0)            
-<% end %>
+            <%= partial "partials/snippets/toaster--sass" %>
           </div>
         </div>
       </div>
@@ -325,54 +178,88 @@
             copy
           </button>
           <div id="toasterjsContent">
-<% code("javascript") do %>
-  import { Controller } from "stimulus";
-
-  export default class extends Controller {
-    static targets = ["progress"];
-    static classes = ["type", "in", "out"];
-    static values = { hasProgress: Boolean };
-
-    toggleClass() {
-      this.element.classList.remove(this.inClass);
-      this.element.classList.add(this.outClass);
-    }
-
-    init(hasProgress) {
-      this.element.classList.add(this.typeClass);
-      if (hasProgress) {
-        let count = 100;
-        let interval = setInterval(() => {
-          count -= 1;
-          if (count === 0) {
-            clearInterval(interval);
-            this.toggleClass();
-          }
-          this.progressTarget.style.width = count + "%";
-        }, 30);
-      } else {
-        this.progressTarget.hidden = true;
-        setTimeout(() => {
-          this.toggleClass();
-        }, 3000);
-      }
-    }
-
-    connect() {
-      this.init(this.hasProgressValue);
-    }
-
-    animationEnd(event) {
-      if (event.animationName === "slideOutLeft") {
-        this.element.remove();
-      }
-    }
-
-    close() {
-      this.element.classList.add(this.outClass);
-    }
-  }
-<% end %>
+            <%= partial "partials/snippets/toaster--js" %>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article id="validation" class="scroll-margin mb--4">
+      <h1>
+        <a href="#dialog" class="text--danger jump-link">
+          #Validation
+        </a>
+      </h1>
+      <p>
+        A beatfuil validation for Rails
+      </p>
+      <div aria-label="Preview">
+        <h4>
+          On Action
+        </h4>
+        <div class="bg--highlight">
+          <img src="assets/images/validation.webp" loading="lazy" alt="Validation">
+        </div>
+      </div           
+      <div aria-label="Rails">
+        <h4>
+          Rails
+        </h4>
+        <p>
+          Create a file name it <mark>form_field_error.rb</mark> in <mark>config/initializers/</mark> folder
+        </p>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="validationRailsContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="validationRailsContent">
+            <%= partial "partials/snippets/validation--rb" %>
+          </div>
+          <small>
+            References:
+            <a href="https://www.jorgemanrubia.com/2019/02/16/form-validations-with-html5-and-modern-rails/" target="_blank" rel="noopener noreferrer">Form validations with HTML5 and modern Rails</a>
+          </small>
+        </div>
+      </div>
+      <div aria-label="HTML">
+        <h4>
+          HTML
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="validationHtmlContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="validationHtmlContent">
+             <%= partial "partials/snippets/validation--erb" %>
+          </div>
+        </div>
+      </div>
+      <div aria-label="Sass">
+        <h4>
+          Sass
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="validationSassContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="validationSassContent">
+            <%= partial "partials/snippets/validation--sass" %>
+          </div>
+        </div>
+      </div>
+      <div aria-label="JavaScript">
+        <h4>
+          JavaScript
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="validationjsContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="validationjsContent">
+            <%= partial "partials/snippets/validation--js" %>
           </div>
         </div>
       </div>
