@@ -1,0 +1,20 @@
+<div class="highlight"><pre class="highlight javascript"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="kd">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="nx">targets</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">lenght</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">textarea</span><span class="dl">"</span><span class="p">];</span>
+    <span class="kd">static</span> <span class="nx">classes</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">danger</span><span class="dl">"</span><span class="p">];</span>
+    <span class="kd">static</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">{</span> <span class="na">lenght</span><span class="p">:</span> <span class="nb">Number</span> <span class="p">};</span>
+    <span class="nx">validate</span><span class="p">(</span><span class="nx">valueLength</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">lenghtTarget</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">lenghtValue</span> <span class="o">-</span> <span class="nx">valueLength</span><span class="p">;</span>
+      <span class="nx">valueLength</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">lenghtValue</span>
+        <span class="p">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">lenghtTarget</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">dangerClass</span><span class="p">)</span>
+        <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">lenghtTarget</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">dangerClass</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">textareaTarget</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">update</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>

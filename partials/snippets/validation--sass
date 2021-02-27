@@ -1,0 +1,13 @@
+<div class="highlight"><pre class="highlight sass"><code>  <span class="nc">.form__input</span>
+    <span class="k">&amp;</span><span class="nd">:valid</span>
+      <span class="nl">border-color</span><span class="p">:</span> <span class="nv">$gray-300</span>
+    <span class="k">&amp;</span><span class="nt">--error</span><span class="o">,</span>
+    <span class="k">&amp;</span><span class="o">[</span><span class="nt">aria-invalid</span><span class="o">=</span><span class="nt">true</span><span class="o">]</span>
+      <span class="nl">border-color</span><span class="p">:</span> <span class="nv">$danger</span>
+
+  <span class="nc">.form__input</span><span class="nd">:valid</span> <span class="o">+</span> <span class="nc">.form__addon</span>
+    <span class="nl">border-color</span><span class="p">:</span> <span class="nv">$gray-300</span>
+
+  <span class="nc">.form__input</span><span class="o">[</span><span class="nt">aria-invalid</span><span class="o">=</span><span class="nt">true</span><span class="o">]</span> <span class="o">+</span> <span class="nc">.form__addon</span>
+    <span class="nl">border-color</span><span class="p">:</span> <span class="nv">$danger</span>
+</code></pre></div>

@@ -1,0 +1,28 @@
+<div class="highlight"><pre class="highlight sass"><code>  <span class="nc">.details-reset</span>
+    <span class="k">&amp;</span><span class="nt">--summary</span>
+      <span class="nl">list-style</span><span class="p">:</span> <span class="nb">none</span>
+      <span class="k">&amp;</span><span class="nd">::-webkit-details-marker</span>
+        <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span>
+
+  <span class="nc">.details-with-dialog</span><span class="o">[</span><span class="nt">open</span><span class="o">]</span> <span class="o">&gt;</span> <span class="nt">summary</span><span class="nd">::before</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s1">''</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">fixed</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="m">0</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="m">0</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="m">0</span>
+    <span class="nl">bottom</span><span class="p">:</span> <span class="m">0</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span> <span class="o">,</span><span class="m">0</span> <span class="o">,.</span><span class="m">5</span><span class="p">)</span>
+    <span class="nl">z-index</span><span class="p">:</span> <span class="m">1</span>
+
+  <span class="nc">.details-dialog</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">fixed</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="m">0</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="m">50%</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">32rem</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">5rem</span> <span class="nb">auto</span>
+    <span class="nl">transform</span><span class="p">:</span> <span class="nf">translateX</span><span class="p">(</span><span class="m">-50%</span><span class="p">)</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">orange</span>
+    <span class="nl">z-index</span><span class="p">:</span> <span class="m">2</span>
+</code></pre></div>

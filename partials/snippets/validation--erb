@@ -1,0 +1,33 @@
+<div class="highlight"><pre class="highlight erb"><code>  <span class="cp">&lt;%=</span> <span class="n">form_with</span><span class="p">(</span><span class="ss">model: </span><span class="p">[</span><span class="ss">:user</span><span class="p">,</span> <span class="n">profile</span><span class="p">],</span>
+                <span class="ss">html: </span><span class="p">{</span> <span class="ss">novalidate: </span><span class="kp">true</span><span class="p">,</span>
+                        <span class="s1">'data-controller'</span><span class="p">:</span> <span class="s1">'validation'</span><span class="p">,</span>
+                        <span class="s1">'data-validation-hidden-class'</span><span class="p">:</span> <span class="s1">'hidden'</span><span class="p">,</span>
+                        <span class="s1">'data-validation-error-class'</span><span class="p">:</span> <span class="s1">'text-red-600'</span>
+                <span class="p">},</span> <span class="ss">local: </span><span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">aria-label=</span><span class="s">"Input with addon"</span><span class="nt">&gt;</span>                
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:profile_name</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">aria-label=</span><span class="s">"Form input"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:profile_name</span><span class="p">,</span> 
+                         <span class="s1">'data-action'</span><span class="p">:</span> <span class="s1">'input-&gt;validation#validity'</span><span class="p">,</span>
+                         <span class="s1">'data-validation-target'</span><span class="p">:</span> <span class="s1">'input'</span><span class="p">,</span>
+                         <span class="s1">'data-input-has-addon'</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> 
+                         <span class="ss">required: </span><span class="kp">true</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">aria-label=</span><span class="s">"Addon icon"</span><span class="nt">&gt;</span>
+          Addon icon
+        <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">aria-label=</span><span class="s">"Input without addon"</span><span class="nt">&gt;</span>                
+      <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:site_url</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">aria-label=</span><span class="s">"Form input"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">url_field</span> <span class="ss">:site_url</span><span class="p">,</span> 
+                            <span class="n">pattern</span><span class="ss">:"https?://.*"</span><span class="p">,</span>
+                            <span class="ss">size: </span><span class="s2">"30"</span><span class="p">,</span>
+                            <span class="ss">placeholder: </span><span class="s1">'http://example.com or https://example.com'</span><span class="p">,</span>
+                            <span class="s1">'data-action'</span><span class="p">:</span> <span class="s1">'input-&gt;validation#validity'</span><span class="p">,</span>
+                            <span class="s1">'data-validation-target'</span><span class="p">:</span> <span class="s1">'input'</span><span class="p">,</span>   
+                            <span class="s1">'data-input-has-addon'</span><span class="p">:</span> <span class="kp">false</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre></div>
