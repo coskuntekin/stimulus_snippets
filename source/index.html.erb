@@ -30,7 +30,7 @@
           On Action
         </h4>
         <div class="bg--highlight">
-          <img src="assets/images/textarea.webp" loading="lazy" alt="Textarea value length">
+          <img src="assets/images/textarea.webp" alt="Textarea value length">
         </div>
       </div>
       <div aria-label="HTML">
@@ -77,7 +77,7 @@
           On Action
         </h4>
         <div class="bg--highlight">
-          <img src="assets/images/dialog.webp" loading="lazy" alt="Toaster">
+          <img src="assets/images/dialog.webp" alt="Toaster">
         </div>
       </div      
       <div aria-label="HTML">
@@ -137,7 +137,7 @@
           On Action
         </h4>
         <div class="bg--highlight">
-          <img src="assets/images/toaster.webp" loading="lazy" alt="Toaster">
+          <img src="assets/images/toaster.webp" alt="Toaster">
         </div>
       </div           
       <div aria-label="HTML">
@@ -197,7 +197,7 @@
           On Action
         </h4>
         <div class="bg--highlight">
-          <img src="assets/images/validation.webp" loading="lazy" alt="Validation">
+          <img src="assets/images/validation.webp" alt="Validation">
         </div>
       </div           
       <div aria-label="Rails">
@@ -260,6 +260,52 @@
           </button>
           <div id="validationjsContent">
             <%= partial "partials/snippets/validation--js" %>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article id="avatar" class="scroll-margin mb--4">
+      <h1>
+        <a href="#avatar" class="text--danger jump-link">
+          #Avatar upload with preview image
+        </a>
+      </h1>
+      <p>
+        When user upload avatar can preview uploaded image
+      </p>
+      <div aria-label="Preview">
+        <h4>
+          On Action
+        </h4>
+        <div class="bg--highlight">
+          <img src="assets/images/avatar.webp" alt="Avatar">
+        </div>
+      </div           
+      <div aria-label="HTML">
+        <h4>
+          HTML
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="avatarHtmlContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="avatarHtmlContent">
+             <%= partial "partials/snippets/avatar--erb" %>
+          </div>
+        </div>
+      </div>
+      <div aria-label="JavaScript">
+        <h4>
+          JavaScript
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="avatarjsContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="avatarjsContent">
+            <%= partial "partials/snippets/avatar--js" %>
           </div>
         </div>
       </div>
