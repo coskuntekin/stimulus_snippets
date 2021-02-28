@@ -12,6 +12,7 @@ input.addEventListener("input", (event) => {
   }
 });
 
+
 document.querySelectorAll(".js-btn-copy").forEach((element) => {
   element.addEventListener("click", (event) => {
     const textarea = document.createElement("textarea");

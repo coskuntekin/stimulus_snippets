@@ -1,9 +1,14 @@
-<div class="highlight"><pre class="highlight javascript"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
+<div class="highlight"><pre class="highlight javascript"><code>
+  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
 
   <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="kd">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="nx">targets</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">progress</span><span class="dl">"</span><span class="p">];</span>
     <span class="kd">static</span> <span class="nx">classes</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">in</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">out</span><span class="dl">"</span><span class="p">];</span>
     <span class="kd">static</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">{</span> <span class="na">hasProgress</span><span class="p">:</span> <span class="nb">Boolean</span> <span class="p">};</span>
+
+    <span class="nx">connect</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">hasProgressValue</span><span class="p">);</span>
+    <span class="p">}</span>
 
     <span class="nx">toggleClass</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">inClass</span><span class="p">);</span>
@@ -30,10 +35,6 @@
       <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="nx">connect</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">hasProgressValue</span><span class="p">);</span>
-    <span class="p">}</span>
-
     <span class="nx">animationEnd</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">animationName</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">slideOutLeft</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
@@ -42,6 +43,10 @@
 
     <span class="nx">close</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">outClass</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">disconnect</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
     <span class="p">}</span>
   <span class="p">}</span>
 </code></pre></div>

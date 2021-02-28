@@ -27,6 +27,7 @@
       <option value="Dialog" data-id="dialog">
       <option value="Toaster" data-id="toaster">
       <option value="Validation" data-id="validation">
+      <option value="Avatar" data-id="avatar">
     </datalist>
   </article>
 </header>
@@ -63,6 +64,11 @@
         Validation
       </a>
     </li>
+    <li class="mb--1">
+      <a href="#avatar" class="nav__link">
+        Avatar upload
+      </a>
+    </li>
   </nav>
 </aside>
 
@@ -91,7 +97,7 @@
           On Action
         </h4>
         <div class="bg--highlight">
-          <img src="assets/images/textarea.webp" loading="lazy" alt="Textarea value length">
+          <img src="assets/images/textarea.webp" alt="Textarea value length">
         </div>
       </div>
       <div aria-label="HTML">
@@ -171,7 +177,7 @@
           On Action
         </h4>
         <div class="bg--highlight">
-          <img src="assets/images/dialog.webp" loading="lazy" alt="Toaster">
+          <img src="assets/images/dialog.webp" alt="Toaster">
         </div>
       </div      
       <div aria-label="HTML">
@@ -306,7 +312,7 @@
           On Action
         </h4>
         <div class="bg--highlight">
-          <img src="assets/images/toaster.webp" loading="lazy" alt="Toaster">
+          <img src="assets/images/toaster.webp" alt="Toaster">
         </div>
       </div           
       <div aria-label="HTML">
@@ -396,12 +402,17 @@
             copy
           </button>
           <div id="toasterjsContent">
-            <div class="highlight"><pre class="highlight javascript"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
+            <div class="highlight"><pre class="highlight javascript"><code>
+  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
 
   <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="kd">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="nx">targets</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">progress</span><span class="dl">"</span><span class="p">];</span>
     <span class="kd">static</span> <span class="nx">classes</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">in</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">out</span><span class="dl">"</span><span class="p">];</span>
     <span class="kd">static</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">{</span> <span class="na">hasProgress</span><span class="p">:</span> <span class="nb">Boolean</span> <span class="p">};</span>
+
+    <span class="nx">connect</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">hasProgressValue</span><span class="p">);</span>
+    <span class="p">}</span>
 
     <span class="nx">toggleClass</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">inClass</span><span class="p">);</span>
@@ -428,10 +439,6 @@
       <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="nx">connect</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">hasProgressValue</span><span class="p">);</span>
-    <span class="p">}</span>
-
     <span class="nx">animationEnd</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">animationName</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">slideOutLeft</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
@@ -440,6 +447,10 @@
 
     <span class="nx">close</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">outClass</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">disconnect</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
     <span class="p">}</span>
   <span class="p">}</span>
 </code></pre></div>
@@ -461,7 +472,7 @@
           On Action
         </h4>
         <div class="bg--highlight">
-          <img src="assets/images/validation.webp" loading="lazy" alt="Validation">
+          <img src="assets/images/validation.webp" alt="Validation">
         </div>
       </div           
       <div aria-label="Rails">
@@ -586,7 +597,8 @@
             copy
           </button>
           <div id="validationjsContent">
-            <div class="highlight"><pre class="highlight javascript"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
+            <div class="highlight"><pre class="highlight javascript"><code>
+  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
 
   <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="kd">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="nx">targets</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">input</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">];</span>
@@ -604,7 +616,7 @@
 
     <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">inputTargets</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">element</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">aria-invalid</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">aria-invalid</span><span class="dl">"</span><span class="p">)))</span> <span class="p">{</span>
           <span class="k">if</span> <span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">inputHasAddon</span><span class="p">))</span> <span class="p">{</span>
             <span class="nx">element</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span>
               <span class="dl">"</span><span class="s2">afterend</span><span class="dl">"</span><span class="p">,</span>
@@ -620,8 +632,18 @@
       <span class="p">});</span>
     <span class="p">}</span>
 
+    <span class="nx">submit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="p">[</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">]</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span>
+        <span class="nx">xhr</span><span class="p">.</span><span class="nx">getResponseHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">)</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">text/javascript; charset=utf-8</span><span class="dl">"</span>
+      <span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">response</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">initialize</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
     <span class="nx">validity</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">aria-invalid</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">aria-invalid</span><span class="dl">"</span><span class="p">)))</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">validity</span><span class="p">.</span><span class="nx">valid</span><span class="p">)</span> <span class="p">{</span>
           <span class="k">this</span><span class="p">.</span><span class="nx">messageTargets</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
@@ -639,6 +661,92 @@
         <span class="p">}</span>
       <span class="p">}</span>
     <span class="p">}</span>
+
+    <span class="nx">disconnect</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">inputTargets</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">element</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">aria-invalid</span><span class="dl">"</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="dl">"</span><span class="s2">form__input--error</span><span class="dl">"</span><span class="p">);</span>
+      <span class="p">});</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">messageTargets</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">element</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">element</span><span class="p">.</span><span class="nx">remove</span><span class="p">());</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article id="avatar" class="scroll-margin mb--4">
+      <h1>
+        <a href="#avatar" class="text--danger jump-link">
+          #Avatar upload with preview image
+        </a>
+      </h1>
+      <p>
+        When user upload avatar can preview uploaded image
+      </p>
+      <div aria-label="Preview">
+        <h4>
+          On Action
+        </h4>
+        <div class="bg--highlight">
+          <img src="assets/images/avatar.webp" alt="Avatar">
+        </div>
+      </div           
+      <div aria-label="HTML">
+        <h4>
+          HTML
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="avatarHtmlContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="avatarHtmlContent">
+             <div class="highlight"><pre class="highlight erb"><code>  <span class="cp">&lt;%=</span> <span class="n">form_with</span><span class="p">(</span><span class="ss">model: </span><span class="p">[</span><span class="ss">:user</span><span class="p">,</span> <span class="n">profile</span><span class="p">],</span>
+                <span class="ss">html: </span><span class="p">{</span> <span class="s1">'data-controller'</span><span class="p">:</span> <span class="s1">'avatar'</span><span class="p">,</span>
+                        <span class="s1">'data-avatar-size-value'</span><span class="p">:</span> <span class="s1">'5000000'</span>
+                <span class="p">},</span> <span class="ss">local: </span><span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">source_of_visual</span><span class="p">(</span><span class="n">profile</span><span class="p">.</span><span class="nf">avatar</span><span class="p">),</span> <span class="s1">'data-avatar-target'</span><span class="p">:</span> <span class="s2">"image"</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">file_field</span> <span class="ss">:avatar</span><span class="p">,</span>
+                        <span class="ss">accept: </span><span class="s1">'.png, .jpg, .jpeg'</span><span class="p">,</span>
+                        <span class="s1">'data-avatar-target'</span><span class="p">:</span> <span class="s1">'input'</span><span class="p">,</span>
+                        <span class="s1">'data-action'</span><span class="p">:</span> <span class="s1">'change-&gt;avatar#upload'</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text--danger"</span> <span class="na">hidden</span> <span class="na">data-avatar-target=</span><span class="s">"message"</span><span class="nt">&gt;</span>
+        Sorry! Your avatar size over than 5MB
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form</span><span class="p">.</span><span class="nf">submit</span> <span class="s1">'data-avatar-target'</span><span class="p">:</span> <span class="s2">"submit"</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</code></pre></div>
+          </div>
+        </div>
+      </div>
+      <div aria-label="JavaScript">
+        <h4>
+          JavaScript
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="avatarjsContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="avatarjsContent">
+            <div class="highlight"><pre class="highlight javascript"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="kd">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="nx">targets</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span><span class="p">];</span>
+    <span class="kd">static</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">{</span> <span class="na">size</span><span class="p">:</span> <span class="nb">Number</span> <span class="p">};</span>
+
+    <span class="nx">upload</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">size</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">sizeValue</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">messageTarget</span><span class="p">.</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">submitTarget</span><span class="p">.</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">messageTarget</span><span class="p">.</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">submitTarget</span><span class="p">.</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">imageTarget</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 </code></pre></div>
           </div>
@@ -650,7 +758,7 @@
 </main>
   <footer class="container text--center">
   <small class="pt--2 pb--1">
-    Made with ❤️ &shy; in Middleman &copy; 2021
+    Made with ❤️ &shy; in Middleman for Rails &copy; 2021
   </small>
 </footer>
 
