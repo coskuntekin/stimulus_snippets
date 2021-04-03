@@ -34,16 +34,6 @@
       });
     }
 
-    submit(event) {
-      let [data, status, xhr] = event.detail;
-      if (
-        xhr.getResponseHeader("Content-Type") !== "text/javascript; charset=utf-8"
-      ) {
-        this.element.innerHTML = xhr.response;
-        this.initialize();
-      }
-    }
-
     validity(event) {
       if (JSON.parse(event.currentTarget.getAttribute("aria-invalid"))) {
         if (event.currentTarget.validity.valid) {

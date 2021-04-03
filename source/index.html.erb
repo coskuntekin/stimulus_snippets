@@ -79,7 +79,7 @@
         <div class="bg--highlight">
           <img src="assets/images/dialog.webp" alt="Toaster">
         </div>
-      </div      
+      </div>   
       <div aria-label="HTML">
         <h4>
           HTML
@@ -118,14 +118,14 @@
             copy
           </button>
           <div id="dialogJsContent">
-            <%= partial "partials/snippets/dialog--sass" %>
+            <%= partial "partials/snippets/dialog--js" %>
           </div>
         </div>
       </div>
     </article>
     <article id="toaster" class="scroll-margin mb--4">
       <h1>
-        <a href="#dialog" class="text--danger jump-link">
+        <a href="#toaster" class="text--danger jump-link">
           #Toaster
         </a>
       </h1>
@@ -139,7 +139,7 @@
         <div class="bg--highlight">
           <img src="assets/images/toaster.webp" alt="Toaster">
         </div>
-      </div           
+      </div>           
       <div aria-label="HTML">
         <h4>
           HTML
@@ -185,7 +185,7 @@
     </article>
     <article id="validation" class="scroll-margin mb--4">
       <h1>
-        <a href="#dialog" class="text--danger jump-link">
+        <a href="#validation" class="text--danger jump-link">
           #Validation
         </a>
       </h1>
@@ -199,7 +199,7 @@
         <div class="bg--highlight">
           <img src="assets/images/validation.webp" alt="Validation">
         </div>
-      </div           
+      </div>       
       <div aria-label="Rails">
         <h4>
           Rails
@@ -280,7 +280,7 @@
         <div class="bg--highlight">
           <img src="assets/images/avatar.webp" alt="Avatar">
         </div>
-      </div           
+      </div>        
       <div aria-label="HTML">
         <h4>
           HTML
@@ -309,6 +309,52 @@
           </div>
         </div>
       </div>
+    </article>
+    <article id="dropdown" class="scroll-margin mb--4">
+      <h1>
+        <a href="#dropdown" class="text--danger jump-link">
+          #Dropdrown without JavaScript
+        </a>
+      </h1>
+      <p>
+        Simplest way to create dropdown
+      </p>
+      <div aria-label="Preview">
+        <h4>
+          On Action
+        </h4>
+        <div class="bg--highlight">
+          <img src="assets/images/dropdown.webp" alt="Dropdown">
+        </div>
+      </div>        
+      <div aria-label="HTML">
+        <h4>
+          HTML
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="dropdownHtmlContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="dropdownHtmlContent">
+            <%= partial "partials/snippets/dropdown--erb" %>
+          </div>
+        </div>
+      </div>
+      <div aria-label="Sass">
+        <h4>
+          Sass
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="dropdownSassContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="dropdownSassContent">
+            <%= partial "partials/snippets/dropdown--sass" %>
+          </div>
+        </div>
+      </div>      
     </article>
   </section>
 

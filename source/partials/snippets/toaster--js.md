@@ -1,5 +1,4 @@
 ```js
-
   import { Controller } from "stimulus";
 
   export default class extends Controller {
@@ -21,12 +20,12 @@
       if (hasProgress) {
         let count = 100;
         let interval = setInterval(() => {
-          count -= 1;
+          count--;
+          this.progressTarget.style.width = count + "%";
           if (count === 0) {
             clearInterval(interval);
             this.toggleClass();
           }
-          this.progressTarget.style.width = count + "%";
         }, 30);
       } else {
         this.progressTarget.hidden = true;
