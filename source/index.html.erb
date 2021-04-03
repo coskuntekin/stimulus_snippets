@@ -16,6 +16,52 @@
         Simple stimulus UI components as snippets.
       </p>
     </article>
+    <article id="avatar" class="scroll-margin mb--4">
+      <h1>
+        <a href="#avatar" class="text--danger jump-link">
+          #Avatar upload with preview image
+        </a>
+      </h1>
+      <p>
+        When user upload avatar can preview uploaded image
+      </p>
+      <div aria-label="Preview">
+        <h4>
+          On Action
+        </h4>
+        <div class="bg--highlight">
+          <img src="assets/images/avatar.webp" alt="Avatar">
+        </div>
+      </div>        
+      <div aria-label="HTML">
+        <h4>
+          HTML
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="avatarHtmlContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="avatarHtmlContent">
+             <%= partial "partials/snippets/avatar--erb" %>
+          </div>
+        </div>
+      </div>
+      <div aria-label="JavaScript">
+        <h4>
+          JavaScript
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="avatarjsContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="avatarjsContent">
+            <%= partial "partials/snippets/avatar--js" %>
+          </div>
+        </div>
+      </div>
+    </article>
     <article id="countLengthOfValue" class="scroll-margin mb--4">
       <h1>
         <a href="#countLengthOfValue" class="text--danger jump-link">
@@ -61,6 +107,52 @@
           </div>
         </div>
       </div>
+    </article>
+    <article id="dropdown" class="scroll-margin mb--4">
+      <h1>
+        <a href="#dropdown" class="text--danger jump-link">
+          #Dropdrown without JavaScript
+        </a>
+      </h1>
+      <p>
+        Simplest way to create dropdown
+      </p>
+      <div aria-label="Preview">
+        <h4>
+          On Action
+        </h4>
+        <div class="bg--highlight">
+          <img src="assets/images/dropdown.webp" alt="Dropdown">
+        </div>
+      </div>        
+      <div aria-label="HTML">
+        <h4>
+          HTML
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="dropdownHtmlContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="dropdownHtmlContent">
+            <%= partial "partials/snippets/dropdown--erb" %>
+          </div>
+        </div>
+      </div>
+      <div aria-label="Sass">
+        <h4>
+          Sass
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="dropdownSassContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="dropdownSassContent">
+            <%= partial "partials/snippets/dropdown--sass" %>
+          </div>
+        </div>
+      </div>      
     </article>
     <article id="dialog" class="scroll-margin mb--4">
       <h1>
@@ -119,6 +211,66 @@
           </button>
           <div id="dialogJsContent">
             <%= partial "partials/snippets/dialog--js" %>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article id="lightbox" class="scroll-margin mb--4">
+      <h1>
+        <a href="#lightbox" class="text--danger jump-link">
+          #Lightbox
+        </a>
+      </h1>
+      <p>
+        Preview images in the modal. **This component uses Tailwind CSS framework
+      </p>
+      <div aria-label="Preview">
+        <h4>
+          On Action
+        </h4>
+        <div class="bg--highlight">
+          <img src="assets/images/lightbox.webp" alt="Lightbox">
+        </div>
+      </div>   
+      <div aria-label="HTML">
+        <h4>
+          HTML
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="lightboxHtmlContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="lightboxHtmlContent">
+            <%= partial "partials/snippets/lightbox--erb" %>
+          </div>
+        </div>
+      </div>
+      <div aria-label="Sass">
+        <h4>
+          Sass
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="lightboxSassContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="lightboxSassContent">
+            <%= partial "partials/snippets/lightbox--sass" %>
+          </div>
+        </div>
+      </div>
+      <div aria-label="JavaScript">
+        <h4>
+          JavaScript
+        </h4>
+        <div class="pos--relative">
+          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="lightboxJsContent">
+            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+            copy
+          </button>
+          <div id="lightboxJsContent">
+            <%= partial "partials/snippets/lightbox--js" %>
           </div>
         </div>
       </div>
@@ -263,98 +415,6 @@
           </div>
         </div>
       </div>
-    </article>
-    <article id="avatar" class="scroll-margin mb--4">
-      <h1>
-        <a href="#avatar" class="text--danger jump-link">
-          #Avatar upload with preview image
-        </a>
-      </h1>
-      <p>
-        When user upload avatar can preview uploaded image
-      </p>
-      <div aria-label="Preview">
-        <h4>
-          On Action
-        </h4>
-        <div class="bg--highlight">
-          <img src="assets/images/avatar.webp" alt="Avatar">
-        </div>
-      </div>        
-      <div aria-label="HTML">
-        <h4>
-          HTML
-        </h4>
-        <div class="pos--relative">
-          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="avatarHtmlContent">
-            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
-            copy
-          </button>
-          <div id="avatarHtmlContent">
-             <%= partial "partials/snippets/avatar--erb" %>
-          </div>
-        </div>
-      </div>
-      <div aria-label="JavaScript">
-        <h4>
-          JavaScript
-        </h4>
-        <div class="pos--relative">
-          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="avatarjsContent">
-            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
-            copy
-          </button>
-          <div id="avatarjsContent">
-            <%= partial "partials/snippets/avatar--js" %>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article id="dropdown" class="scroll-margin mb--4">
-      <h1>
-        <a href="#dropdown" class="text--danger jump-link">
-          #Dropdrown without JavaScript
-        </a>
-      </h1>
-      <p>
-        Simplest way to create dropdown
-      </p>
-      <div aria-label="Preview">
-        <h4>
-          On Action
-        </h4>
-        <div class="bg--highlight">
-          <img src="assets/images/dropdown.webp" alt="Dropdown">
-        </div>
-      </div>        
-      <div aria-label="HTML">
-        <h4>
-          HTML
-        </h4>
-        <div class="pos--relative">
-          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="dropdownHtmlContent">
-            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
-            copy
-          </button>
-          <div id="dropdownHtmlContent">
-            <%= partial "partials/snippets/dropdown--erb" %>
-          </div>
-        </div>
-      </div>
-      <div aria-label="Sass">
-        <h4>
-          Sass
-        </h4>
-        <div class="pos--relative">
-          <button class="btn btn--copy js-btn-copy" data-tooltip="Copied!" data-content="dropdownSassContent">
-            <svg class="icon icon--middle" width="14" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
-            copy
-          </button>
-          <div id="dropdownSassContent">
-            <%= partial "partials/snippets/dropdown--sass" %>
-          </div>
-        </div>
-      </div>      
     </article>
   </section>
 
