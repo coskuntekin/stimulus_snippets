@@ -1,0 +1,15 @@
+<div class="highlight"><pre class="highlight erb"><code>  <span class="nt">&lt;div</span> <span class="na">aria-label=</span><span class="s">"Lightbox"</span> <span class="na">data-controller=</span><span class="s">"lightbox"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%</span> <span class="vi">@project</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">image</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">data-preview-target=</span><span class="s">"thumbnail"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span>
+                <span class="na">data-action=</span><span class="s">"click-&gt;lightbox#open"</span>
+                <span class="na">id=</span><span class="s">"lightbox-btn-</span><span class="cp">&lt;%=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="cp">%&gt;</span><span class="s">"</span>
+                <span class="na">data-lightbox-id=</span><span class="s">"</span><span class="cp">&lt;%=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="cp">%&gt;</span><span class="s">"</span>
+                <span class="na">data-lightbox-img=</span><span class="s">"</span><span class="cp">&lt;%=</span> <span class="n">image</span><span class="p">.</span><span class="nf">url</span> <span class="cp">%&gt;</span><span class="s">"</span> 
+                <span class="na">class=</span><span class="s">"flex justify-center mx-auto w-full bg--dark rounded mb-2"</span><span class="nt">&gt;</span>
+          <span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="n">image</span><span class="p">.</span><span class="nf">url</span> <span class="cp">%&gt;</span> 
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+</code></pre></div>

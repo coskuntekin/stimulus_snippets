@@ -1,0 +1,81 @@
+<div class="highlight"><pre class="highlight javascript"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="kd">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="nx">targets</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">modal</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">backdrop</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">thumbnail</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">prev</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">next</span><span class="dl">"</span><span class="p">];</span>
+
+    <span class="nx">template</span><span class="p">(</span><span class="nx">image</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="s2">`
+      &lt;div aria-label="Lightbox modal" class="fixed shadow-2xl lightbox bg-white rounded" data-lightbox-target="modal"&gt;
+        &lt;div aria-label="Head" class="flex justify-between px-4 py-2"&gt;
+          &lt;h3&gt;
+            Title
+          &lt;/h3&gt;
+          &lt;button type="button" data-action="click-&gt;lightbox#close"&gt;
+            Close
+          &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div aria-label="Body"&gt;
+            &lt;img src="</span><span class="p">${</span><span class="nx">image</span><span class="p">}</span><span class="s2">" class="max-h-96 mx-auto" data-lightbox-target="image"&gt;
+          &lt;/div&gt;
+          &lt;div aria-label="Foot" class="flex justify-between px-4 py-2"&gt;
+            &lt;button type="button" data-action="click-&gt;lightbox#prev" data-lightbox-target="prev"&gt;
+              Prev
+            &lt;/button&gt;
+            &lt;button type="button" data-action="click-&gt;lightbox#next" data-lightbox-target="next"&gt;
+              Next
+            &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div aria-label="Backdrop" data-lightbox-target="backdrop" data-action="click-&gt;lightbox#close" class="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-30"&gt;&lt;/div&gt;`</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">open</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">currentId</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">lightboxId</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span>
+        <span class="dl">"</span><span class="s2">beforeend</span><span class="dl">"</span><span class="p">,</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">lightboxImg</span><span class="p">)</span>
+      <span class="p">);</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">overflow-hidden</span><span class="dl">"</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">disableNext</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">disablePrev</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nx">disableNext</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">thumbnailTargets</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">currentId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nextTarget</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">pointer-events-none</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">text-gray-300</span><span class="dl">"</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">disablePrev</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentId</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">prevTarget</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">pointer-events-none</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">text-gray-300</span><span class="dl">"</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">setImg</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">imageTarget</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span>
+        <span class="dl">"</span><span class="s2">lightbox-btn-</span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">currentId</span>
+      <span class="p">).</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">lightboxImg</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">prev</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">currentId</span><span class="o">--</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">disablePrev</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">nextTarget</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="dl">"</span><span class="s2">pointer-events-none</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">text-gray-300</span><span class="dl">"</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">setImg</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nx">next</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">currentId</span><span class="o">++</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">disableNext</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">prevTarget</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="dl">"</span><span class="s2">pointer-events-none</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">text-gray-300</span><span class="dl">"</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">setImg</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nx">close</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">modalTarget</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">backdropTarget</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="dl">"</span><span class="s2">overflow-hidden</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>

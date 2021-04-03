@@ -1,0 +1,8 @@
+<div class="highlight"><pre class="highlight sass"><code>  <span class="nc">.lightbox</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="m">2rem</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="m">50%</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">48rem</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="nf">calc</span><span class="p">(</span><span class="m">100%</span> <span class="o">-</span> <span class="m">1</span><span class="mi">.5rem</span><span class="p">)</span>
+    <span class="nl">transform</span><span class="p">:</span> <span class="nf">translateX</span><span class="p">(</span><span class="m">-50%</span><span class="p">)</span>
+    <span class="nl">z-index</span><span class="p">:</span> <span class="m">40</span>
+</code></pre></div>

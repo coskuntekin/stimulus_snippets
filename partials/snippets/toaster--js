@@ -1,5 +1,4 @@
-<div class="highlight"><pre class="highlight javascript"><code>
-  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
+<div class="highlight"><pre class="highlight javascript"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">Controller</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">stimulus</span><span class="dl">"</span><span class="p">;</span>
 
   <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="kd">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="nx">targets</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">progress</span><span class="dl">"</span><span class="p">];</span>
@@ -20,12 +19,12 @@
       <span class="k">if</span> <span class="p">(</span><span class="nx">hasProgress</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
         <span class="kd">let</span> <span class="nx">interval</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-          <span class="nx">count</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">progressTarget</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">%</span><span class="dl">"</span><span class="p">;</span>
           <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">interval</span><span class="p">);</span>
             <span class="k">this</span><span class="p">.</span><span class="nx">toggleClass</span><span class="p">();</span>
           <span class="p">}</span>
-          <span class="k">this</span><span class="p">.</span><span class="nx">progressTarget</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">%</span><span class="dl">"</span><span class="p">;</span>
         <span class="p">},</span> <span class="mi">30</span><span class="p">);</span>
       <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">progressTarget</span><span class="p">.</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>

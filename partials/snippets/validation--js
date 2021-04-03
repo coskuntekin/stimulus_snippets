@@ -33,16 +33,6 @@
       <span class="p">});</span>
     <span class="p">}</span>
 
-    <span class="nx">submit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-      <span class="kd">let</span> <span class="p">[</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">]</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">;</span>
-      <span class="k">if</span> <span class="p">(</span>
-        <span class="nx">xhr</span><span class="p">.</span><span class="nx">getResponseHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">)</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">text/javascript; charset=utf-8</span><span class="dl">"</span>
-      <span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">response</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">initialize</span><span class="p">();</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-
     <span class="nx">validity</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">aria-invalid</span><span class="dl">"</span><span class="p">)))</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">validity</span><span class="p">.</span><span class="nx">valid</span><span class="p">)</span> <span class="p">{</span>
